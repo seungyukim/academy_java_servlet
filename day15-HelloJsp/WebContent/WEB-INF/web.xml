@@ -48,6 +48,37 @@
     <servlet-name>productListJsp</servlet-name>
     <url-pattern>/product/list</url-pattern>
   </servlet-mapping>
+
+  <!-- main.jsp 설정 -->
+  <servlet>
+    <servlet-name>mainJsp</servlet-name>
+    <jsp-file>/WEB-INF/jsp/actionTag/main.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mainJsp</servlet-name>
+    <url-pattern>/main</url-pattern>
+  </servlet-mapping>
+  
+  <!-- copy.jsp 설정 -->
+  <servlet>
+    <servlet-name>copyJsp</servlet-name>
+    <jsp-file>/WEB-INF/jsp/actionTag/copy.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>copyJsp</servlet-name>
+    <url-pattern>/copy</url-pattern>
+  </servlet-mapping>
+
+  <!-- reqTest.jsp 설정 -->
+  <servlet>
+    <servlet-name>reqJsp</servlet-name>
+    <jsp-file>/WEB-INF/jsp/request/reqTest.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>reqJsp</servlet-name>
+    <url-pattern>/req</url-pattern>
+  </servlet-mapping>
+  
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
