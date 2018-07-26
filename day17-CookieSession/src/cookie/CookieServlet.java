@@ -75,7 +75,7 @@ public class CookieServlet extends HttpServlet {
 		
 		// 4. 로그인 성공 페이지로 이동
 		ServletContext context = getServletContext();
-		String view = context.getContextPath() + "/views/cookie/success";
+		String view = context.getContextPath() + "/cookie/views/success";
 		response.sendRedirect(view);
 	}
 
