@@ -118,7 +118,7 @@ public class MybatisWarehouse implements GeneralWarehouse {
 		
 		try {
 			// 3. mapper를 통하여 삭제진행
-			rmCnt = mapper.deleteOne(product);
+			rmCnt = mapper.delete(product);
 		} finally {
 			if (session != null) {
 				session.close();

@@ -47,6 +47,7 @@
 			<td colspan="2">
 				<input type="submit" value="등록하기"/>
 				<input type="reset" value="초기화"/>
+				<a href="menu">메뉴로 돌아가기</a>
 			</td>
 		</tr>
 	</table>

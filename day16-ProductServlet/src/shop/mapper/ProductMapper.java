@@ -9,7 +9,7 @@ public interface ProductMapper {
 	int insert(Product product);
 	Product selectOne(Product product);
 	int update(Product product);
-	int deleteOne(Product product);
+	int delete(Product product);
 	List<Product> selectAll();
 	String isExists(Product product);
 }
