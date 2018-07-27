@@ -5,6 +5,9 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import shop.dao.GeneralWarehouse;
+import shop.factory.WarehouseFactory;
+
 /**
  * 이 어플리케이션(서비스)에서 사용할 초기 값들을 설정하는
  * 리스너 클래스
@@ -53,6 +56,15 @@ public class ShopListener implements ServletContextListener {
 		// 5. 이 웹 어플리케이션이 유지하는 context 객체에
 		//    컨텍스트 경로를 속성으로 추가
 		context.setAttribute("contextPath", context.getContextPath());
+		
+		// 6. 이 웹 어플리케이션에서 공유할 dao객체(warehouse)를 생성
+		// web.xml 에 설정된 dao 초기화 파라미터 추출
+		String dao = context.getInitParameter("dao");
+		// warehouse 객체 생성
+		GeneralWarehouse warehouse;
+		warehouse = WarehouseFactory.getWarehouse(dao);
+		// 생성된 warehouse 객체를 context에 속성으로 추가
+		context.setAttribute("warehouse", warehouse);
 		
 	}
 

@@ -49,11 +49,6 @@ public class InsertServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.한글처리
-		// (1)요청객체 한글 처리
-		request.setCharacterEncoding("utf-8");
-		
-		// (2)응답객체 한글 처리
-		response.setContentType("text/html;charset=utf-8");
 		
 		//2.모델생성
 		// (1)insert.jsp에서 넘어온 파라미터 추출
@@ -67,7 +62,7 @@ public class InsertServlet extends HttpServlet {
 		
 		// (3)DB 입력에 필요한 객체 선언
 		GeneralWarehouse warehouse;
-		warehouse = getWarehouse("mybatis");
+		warehouse = (GeneralWarehouse) getServletContext().getAttribute("warehouse");
 		
 		//  DB입력 성공/ 실패시 발생하는 메시지
 		String message = null;

@@ -3,7 +3,7 @@
   <display-name>day16-ProductServlet</display-name>
   <context-param>
     <param-name>dao</param-name>
-    <param-value>mybatis</param-value>
+    <param-value>list</param-value>
   </context-param>
   <context-param>
     <param-name>logFileLoc</param-name>

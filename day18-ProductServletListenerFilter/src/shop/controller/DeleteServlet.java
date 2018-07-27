@@ -37,8 +37,6 @@ public class DeleteServlet extends HttpServlet {
 			           , HttpServletResponse response) 
 			        		   throws ServletException, IOException {
 		// 1. 한글 처리 (요청, 응답) : 여기서는 필수는 아님
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
 		
 	    // 2. 모델 생성 : 삭제
 	    // (1) 요청 파라미터 추출
@@ -49,7 +47,7 @@ public class DeleteServlet extends HttpServlet {
 		
 		// (3) DB객체 선언/얻기
 		GeneralWarehouse warehouse;
-		warehouse = getWarehouse("mybatis");	
+		warehouse = (GeneralWarehouse) getServletContext().getAttribute("warehouse");
 		
 		// 3. view 관련 변수들 선언
 		String view = null;
@@ -71,12 +69,14 @@ public class DeleteServlet extends HttpServlet {
 			
 		}
 
+		request.setAttribute("message", message);
+		
 		// 3. view 선택
 		// (2) 1차 뷰 선택
 		view = "/messageJsp";
 
 		// (3) 1차 뷰 선택
-		view = "main/list";
+		next = "main/list";
 		request.setAttribute("next", next);
 		
 		// 4. 결정된 view 로 이동

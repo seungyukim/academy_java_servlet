@@ -73,7 +73,7 @@ public class UpdateServlet extends HttpServlet {
 		
 		// (3) DB 조회에 사용할 객체 준비
 		GeneralWarehouse warehouse;
-		warehouse = getWarehouse("mybatis");
+		warehouse = (GeneralWarehouse) getServletContext().getAttribute("warehouse");
 		
 		// 3. View 선택, 조회된 정보를 request 추가
 		// (1) view 저장 변수 선언
@@ -144,7 +144,7 @@ public class UpdateServlet extends HttpServlet {
 				
 		// (3) update 수행을 위하여 DB객체 얻기
 		GeneralWarehouse warehouse;
-		warehouse = getWarehouse("mybatis");
+		warehouse = (GeneralWarehouse) getServletContext().getAttribute("warehouse");
 		
 		// 3. view 
 		// (1) 관련 변수 선언
