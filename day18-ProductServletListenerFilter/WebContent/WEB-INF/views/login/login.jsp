@@ -14,6 +14,7 @@
 <body>
 
 <h3>로그인 하세요(Session)</h3>
+
 <hr>
 <form action="${contextPath}/login" method="post">
 <!-- 	table>(tr>(th+td>input))*3 -->

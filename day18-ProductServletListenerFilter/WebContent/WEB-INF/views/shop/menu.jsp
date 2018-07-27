@@ -14,7 +14,7 @@
 	<li><a href="${contextPath}/main/list">전체 제품 목록</a></li>
 	<li><a href="${contextPath}/main/insert">제품 신규 등록</a></li>
 	<br/>
-	<li><a href="${contextPath}/insert">로그 아웃</a></li>
+	<li><a href="${contextPath}/logout">로그 아웃</a></li>
 </ul>
 </body>
 </html>

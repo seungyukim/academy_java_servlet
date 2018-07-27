@@ -17,7 +17,9 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * login/login.jsp 로 이동
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request
+			           , HttpServletResponse response) 
+			        		   throws ServletException, IOException {
 		// 뷰 결정
 		String view = "/loginJsp";
 		
@@ -30,9 +32,11 @@ public class LoginServlet extends HttpServlet {
 
 	/**
 	 * 로그인 처리 된 것처럼 가정
-	 * 아이디 : java, 비밀번호 : jsp 일 때 성공으로 가정함
+	 * 아이디 : java, 비밀번호 : jsp 일 때 성공으로 가정함 
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request
+			            , HttpServletResponse response) throws ServletException, IOException {
+		
 		// 1. 로그인 시도 화면에서 전달된 파라미터 추출
 		String userid = request.getParameter("userid");
 		String password = request.getParameter("password");
@@ -41,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 		String view = null;
 		String next = null;
 		String message = null;
-		
 		
 		// 2. 로그인 처리
 		if ("java".equals(userid) && "jsp".equals(password)) {
@@ -57,55 +60,21 @@ public class LoginServlet extends HttpServlet {
 			
 			// 뷰 결정
 			view = "/messageJsp";
-			
 			// 2차 뷰 결정
-			next = "main/menu"; // /main/menu
-			
+			next = "main/menu";
 		} else {
 			message = "로그인 실패하였습니다.";
-			view = "/messgaJsp";
+			view = "/messageJsp";
 			next = "main/login";
 		}
 		
 		request.setAttribute("message", message);
 		request.setAttribute("next", next);
-		
 		// 페이지 이동
 		RequestDispatcher reqd;
 		reqd = request.getRequestDispatcher(view);
 		
-		reqd.forward(request, response); 
-		
+		reqd.forward(request, response);
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

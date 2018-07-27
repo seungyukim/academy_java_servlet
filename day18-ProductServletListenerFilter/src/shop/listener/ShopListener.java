@@ -3,6 +3,7 @@ package shop.listener;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 /**
  * 이 어플리케이션(서비스)에서 사용할 초기 값들을 설정하는
@@ -13,10 +14,21 @@ import javax.servlet.ServletContextListener;
  * @author PC38209
  *
  */
+@WebListener
 public class ShopListener implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
+		// 서블릿 컨테이너(톰캣)에 의해 웹 어플리케이션이 
+		// 해제될 때 해제 이벤트를 자동으로 잡아서
+		// 호출되는 메소드
+		
+		// 이 예제에서는 아무런 것도 진행하지 않음.
+		
+	}
+
+	@Override
+	public void contextInitialized(ServletContextEvent event) {
 		// 웹 어플리케이션이 서블릿 컨테이너(톰캣)에 의해
 		// 구동될 때, 시작 이벤트가 발생하면 자동으로 호출됨
 		System.out.println("Shop 어플리케이션 컨텍스트 리스너 구동");
@@ -41,16 +53,6 @@ public class ShopListener implements ServletContextListener {
 		// 5. 이 웹 어플리케이션이 유지하는 context 객체에
 		//    컨텍스트 경로를 속성으로 추가
 		context.setAttribute("contextPath", context.getContextPath());
-		
-	}
-
-	@Override
-	public void contextInitialized(ServletContextEvent event) {
-		// 서블릿 컨테이너(톰캣)에 의해 웹 어플리케이션이 
-		// 해제될 때 해제 이벤트를 자동으로 잡아서
-		// 호출되는 메소드
-		
-		// 이 예제에서는 아무런 것도 진행하지 않음.
 		
 	}
 
